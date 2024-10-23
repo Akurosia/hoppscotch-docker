@@ -11,7 +11,7 @@ LABEL maintainer="Hoppscotch"
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
-ENV NODE_VERSION=18.16.0
+ENV NODE_VERSION=20.5.0
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 ENV NVM_DIR=/root/.nvm
 
