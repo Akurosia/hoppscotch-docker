@@ -5,7 +5,6 @@ ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 
 ARG HOPPSCOTH_RELEASE
-ARG HOPPSCOTH_REPO="hoppscotch/hoppscotch"
 LABEL build_version="Based on Linuxserver.io images version:- ${HOPPSCOTH_RELEASE}"
 LABEL maintainer="Hoppscotch"
 
@@ -32,10 +31,10 @@ RUN echo "**** install node family ****" && \
 
 RUN echo "**** install hoppscoth ****" && \
     mkdir -p /app/ && \
-    HOPPSCOTH_RELEASE=$(curl -sX GET "https://api.github.com/repos/${HOPPSCOTH_REPO}/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]'); && \
+    HOPPSCOTH_RELEASE=$(curl -sX GET "https://api.github.com/repos/hoppscotch/hoppscotch/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]'); \
     mkdir -p /app && \
     echo $HOPPSCOTH_RELEASE && \
-    curl -o /tmp/hoppscotch.tar.gz -L "https://github.com/${HOPPSCOTH_REPO}/archive/${HOPPSCOTH_RELEASE}.tar.gz" && \
+    curl -o /tmp/hoppscotch.tar.gz -L "https://github.com/hoppscotch/hoppscotch/archive/${HOPPSCOTH_RELEASE}.tar.gz" && \
     tar xf /tmp/hoppscotch.tar.gz -C /app/ --strip-components=1
 
 RUN echo "**** cleanup ****" && \
