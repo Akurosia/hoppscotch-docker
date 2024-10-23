@@ -28,8 +28,9 @@ RUN echo "**** install node family ****" && \
     tee /etc/apt/sources.list.d/caddy-stable.list && \
     apt update && \
     apt install -y caddy && \
-    caddy version && \
-    echo "**** install hoppscoth ****" && \
+    caddy version
+
+RUN echo "**** install hoppscoth ****" && \
     mkdir -p \
       /app/ && \
     if [ -z ${HOPPSCOTH_RELEASE+x} ]; then \
@@ -43,8 +44,9 @@ RUN echo "**** install node family ****" && \
       "https://github.com/${HOPPSCOTH_REPO}/archive/${HOPPSCOTH_RELEASE}.tar.gz" && \
     tar xf \
       /tmp/hoppscotch.tar.gz -C \
-      /app/ --strip-components=1 && \
-    echo "**** cleanup ****" && \
+      /app/ --strip-components=1
+
+RUN echo "**** cleanup ****" && \
     apt-get clean && \
     rm -rf \
       /tmp/* \
