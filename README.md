@@ -1,12 +1,12 @@
 # Quick reference
 
--	**Maintained by**: [Webysther](https://github.com/webysther)
+-	**Maintained by**: [akurosia](https://github.com/akurosia)
 
 -	**Where to get help**: [Discord](https://hoppscotch.io/discord)
 # Supported tags and respective `Dockerfile` links
 
-- [`Dockerfile`](https://github.com/webysther/hoppscotch-docker/blob/main/Dockerfile)
-- Available on GitHub as [`ghcr.io/webysther/hoppscotch`](https://github.com/webysther/hoppscotch-docker/pkgs/container/hoppscotch)
+- [`Dockerfile`](https://github.com/akurosia/hoppscotch-docker/blob/main/Dockerfile)
+- Available on GitHub as [`ghcr.io/akurosia/hoppscotch`](https://github.com/akurosia/hoppscotch-docker/pkgs/container/hoppscotch)
 
 ## Simple Tags
 
@@ -126,7 +126,7 @@ Here are some example snippets to help you get started creating a container.
 version: "2.1"
 services:
   hoppscotch:
-    image: webysther/hoppscotch:latest
+    image: akurosia/hoppscotch:latest
     container_name: hoppscotch
     ports:
       - 80:80
@@ -140,7 +140,7 @@ docker run -d \
   --name=hoppscotch \
   -p 80:80 \
   --restart unless-stopped \
-  webysther/hoppscotch:latest
+  akurosia/hoppscotch:latest
 ```
 
 ### docker-compose with database
@@ -150,7 +150,7 @@ docker run -d \
 version: "2.1"
 services:
   hoppscotch:
-    image: webysther/hoppscotch:latest
+    image: akurosia/hoppscotch:latest
     container_name: hoppscotch
     networks:
       hoppscotch:
@@ -184,7 +184,7 @@ services:
       - 5432
     healthcheck:
       test: [
-        "CMD-SHELL", 
+        "CMD-SHELL",
         "sh -c 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}'"
       ]
       interval: 10s
@@ -206,7 +206,7 @@ networks:
 version: "2.1"
 services:
   hoppscotch:
-    image: webysther/hoppscotch:latest
+    image: akurosia/hoppscotch:latest
     environment:
       - MODE=team
       - DATABASE_URL=postgresql://postgres:testpass@hoppscotch-db:5432/hoppscotch
@@ -224,7 +224,7 @@ services:
 version: "2.1"
 services:
   hoppscotch:
-    image: webysther/hoppscotch:latest
+    image: akurosia/hoppscotch:latest
     environment:
       - THEME_COLOR=orange
       - BG_COLOR=dark
@@ -249,7 +249,7 @@ This configuration can be expanded to every service in container.
 version: "2.1"
 services:
   hoppscotch:
-    image: webysther/hoppscotch:latest
+    image: akurosia/hoppscotch:latest
     container_name: hoppscotch
     networks:
       hoppscotch:
@@ -262,7 +262,7 @@ services:
     restart: unless-stopped
 
   hoppscotch-api:
-    image: webysther/hoppscotch:latest
+    image: akurosia/hoppscotch:latest
     container_name: hoppscotch
     networks:
       hoppscotch:
@@ -414,7 +414,7 @@ Below are the instructions for updating containers:
 
 ### Via Docker Run
 
-* Update the image: `docker pull webysther/hoppscotch:latest`
+* Update the image: `docker pull akurosia/hoppscotch:latest`
 * Stop the running container: `docker stop hoppscotch`
 * Delete the container: `docker rm hoppscotch`
 * Recreate a new container with the same docker run parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
@@ -440,8 +440,8 @@ Below are the instructions for updating containers:
 If you want to make local modifications to these images for development purposes or just to customize the logic:
 
 ```bash
-git clone https://github.com/webysther/hoppscotch-docker.git
+git clone https://github.com/akurosia/hoppscotch-docker.git
 cd hoppscotch-docker
-docker build --build-arg HOPPSCOTH_RELEASE="2023.4.7" . -t webysther/hoppscotch:2023.4.7 -t webysther/hoppscotch:latest
-docker push webysther/hoppscotch --all-tags
+docker build --build-arg HOPPSCOTH_RELEASE="2023.4.7" . -t akurosia/hoppscotch:2023.4.7 -t akurosia/hoppscotch:latest
+docker push akurosia/hoppscotch --all-tags
 ```
