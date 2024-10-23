@@ -31,27 +31,16 @@ RUN echo "**** install node family ****" && \
     caddy version
 
 RUN echo "**** install hoppscoth ****" && \
-    mkdir -p \
-      /app/ && \
-    if [ -z ${HOPPSCOTH_RELEASE+x} ]; then \
-      HOPPSCOTH_RELEASE=$(curl -sX GET "https://api.github.com/repos/${HOPPSCOTH_REPO}/releases/latest" \
-      | awk '/tag_name/{print $4;exit}' FS='[""]'); \
-    fi && \
+    mkdir -p /app/ && \
+    HOPPSCOTH_RELEASE=$(curl -sX GET "https://api.github.com/repos/${HOPPSCOTH_REPO}/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]'); && \
     mkdir -p /app && \
     echo $HOPPSCOTH_RELEASE && \
-    curl -o \
-      /tmp/hoppscotch.tar.gz -L \
-      "https://github.com/${HOPPSCOTH_REPO}/archive/${HOPPSCOTH_RELEASE}.tar.gz" && \
-    tar xf \
-      /tmp/hoppscotch.tar.gz -C \
-      /app/ --strip-components=1
+    curl -o /tmp/hoppscotch.tar.gz -L "https://github.com/${HOPPSCOTH_REPO}/archive/${HOPPSCOTH_RELEASE}.tar.gz" && \
+    tar xf /tmp/hoppscotch.tar.gz -C /app/ --strip-components=1
 
 RUN echo "**** cleanup ****" && \
     apt-get clean && \
-    rm -rf \
-      /tmp/* \
-      /var/lib/apt/lists/* \
-      /var/tmp/*
+    rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 WORKDIR /app
 
