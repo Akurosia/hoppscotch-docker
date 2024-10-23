@@ -1,5 +1,8 @@
 # Quick reference
 
+- **FORKED FROM**: [Github.com/webysther](https://github.com/webysther/hoppscotch-docker)
+- **FORKED FROM**: [hub.docker.com/r/webysther](https://hub.docker.com/r/webysther/hoppscotch)
+
 -	**Maintained by**: [akurosia](https://github.com/akurosia)
 
 -	**Where to get help**: [Discord](https://hoppscotch.io/discord)
