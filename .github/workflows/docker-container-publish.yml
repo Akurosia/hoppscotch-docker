@@ -17,20 +17,20 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            webysther/hoppscotch
-            ghcr.io/webysther/hoppscotch
+            Akurosia/hoppscotch
+            ghcr.io/Akurosia/hoppscotch
           tags: |
             type=raw,value=${{ github.event.client_payload.tag_name }}
             type=raw,value=${{ github.event.client_payload.tag_major }}
             type=raw,value=latest
           labels: |
-            maintainer=Webysther
-            org.opencontainers.image.authors=linuxserver.io,github.com/hoppscotch/hoppscotch,github.com/webysther/hoppscotch-docker
+            maintainer=Akurosia
+            org.opencontainers.image.authors=linuxserver.io,github.com/hoppscotch/hoppscotch,github.com/Akurosia/hoppscotch-docker
             org.opencontainers.image.licenses=GPL-3.0-only,MIT
             org.opencontainers.image.title=Hoppscotch docker
             org.opencontainers.image.description=All-in-one hoppscotch image that works with one domain and have embed smtp
             org.opencontainers.image.version=${{ github.event.client_payload.tag_name }}
-            org.opencontainers.image.documentation=https://github.com/webysther/hoppscotch-docker#application-setup
+            org.opencontainers.image.documentation=https://github.com/Akurosia/hoppscotch-docker#application-setup
             org.opencontainers.image.vendor=Hoppscotch
       - 
         name: Set up QEMU
