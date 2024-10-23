@@ -19,8 +19,9 @@ RUN echo "**** install node family ****" && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash  && \
     . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION} && \
     nvm use v${NODE_VERSION} && nvm alias default v${NODE_VERSION} && \
-    npm install -g npm pnpm && node --version && npm --version && pnpm --version && \
-    echo "**** install caddy ****" && \
+    npm install -g npm pnpm && node --version && npm --version && pnpm --version
+
+RUN echo "**** install caddy ****" && \
     curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | \
     gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg && \
     curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | \
