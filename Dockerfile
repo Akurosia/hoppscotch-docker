@@ -45,8 +45,8 @@ RUN echo "**** cleanup ****" && \
 WORKDIR /app
 
 RUN echo "**** install app ****" && \
-      cp .env.example .env && \
-      pnpm install
+    cp .env.example .env.local && \
+    pnpm install
 
 COPY .docker/ /
 
