@@ -123,7 +123,7 @@ Here are some example snippets to help you get started creating a container.
 
 ```yaml
 ---
-version: "2.1"
+version: "3"
 services:
   hoppscotch:
     image: akurosia/hoppscotch:latest
@@ -147,7 +147,7 @@ docker run -d \
 
 ```yaml
 ---
-version: "2.1"
+version: "3"
 services:
   hoppscotch:
     image: akurosia/hoppscotch:latest
@@ -203,7 +203,7 @@ networks:
 
 ```yaml
 ---
-version: "2.1"
+version: "3"
 services:
   hoppscotch:
     image: akurosia/hoppscotch:latest
@@ -221,7 +221,7 @@ services:
 
 ```yaml
 ---
-version: "2.1"
+version: "3"
 services:
   hoppscotch:
     image: akurosia/hoppscotch:latest
@@ -246,7 +246,7 @@ This configuration can be expanded to every service in container.
 
 ```yaml
 ---
-version: "2.1"
+version: "3"
 services:
   hoppscotch:
     image: akurosia/hoppscotch:latest
