@@ -1,9 +1,9 @@
-#name: Update Docker Hub Description
-#
-#on:
-#  push:
-#    paths:
-#      - 'README.md'
+name: Update Docker Hub Description
+
+on:
+  push:
+    paths:
+      - 'README.md'
 #
 #jobs:
 #  build:
